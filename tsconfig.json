@@ -1,0 +1,74 @@
+{
+  "compilerOptions": {
+    "types": ["jest", "node"],
+    "lib": [
+      "es2017",
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "noEmit": true,
+    "noImplicitAny": false,
+    "jsx": "react",
+    //set absolute path
+    "baseUrl": ".",
+    "paths": {
+      "~config/*": [
+        "config/*.ts"
+      ],
+      "@config": [
+        "config/index.ts"
+      ],
+      "~components/*": [
+        "./src/components/*"
+      ],
+      "~pages/*": [
+        "./src/pages/*"
+      ],
+      "~stores/*": [
+        "src/stores/*"
+      ],
+      "~utils/*": [
+        "src/utils/*.ts"
+      ],
+      "@utils": [
+        "src/utils/index.ts"
+      ],
+      "@hocs": [
+        "src/hocs/index.tsx"
+      ],
+      "@hooks": [
+        "src/hooks/index.tsx"
+      ],
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "dashes",
+          "customMatcher": "\\.m\\.css$",
+          "customRenderer": "./myRenderer.js",
+          "dotenvOptions": {},
+          "postCssOptions": {},
+          "rendererOptions": {}
+        }
+      }
+    ]
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}
