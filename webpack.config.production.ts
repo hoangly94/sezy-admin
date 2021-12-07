@@ -4,18 +4,17 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import Dotenv from 'dotenv-webpack';
 
 // const commonPaths = require('./config/paths');
 
 export default {
-  name: "local",
-  mode: 'development',
-  // Where files should be sent once they are bundled
- output: {
-   path: path.join(__dirname, '/dist'),
-   filename: 'bundle.js',
-   publicPath: "/",
- },
+  mode: 'production',
+  output: {
+    path: path.join(__dirname, '/dist'),
+    filename: 'bundle.js',
+    publicPath: "/",
+  },
   optimization: {
     minimizer: [
       new OptimizeCSSAssetsPlugin({}),
@@ -29,6 +28,7 @@ export default {
     },
   },
   plugins: [
+    new Dotenv(),
     new ForkTsCheckerWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
@@ -131,15 +131,6 @@ export default {
     },
     fallback: { "stream": false },
   },
-  devtool: 'eval-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    publicPath: '/',
-    historyApiFallback: true,
-    compress: true,
-    port: 4000,
-    watchContentBase: true,
-    open: true,
-  },
+  devtool: 'source-map',
 };
 

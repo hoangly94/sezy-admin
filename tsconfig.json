@@ -43,9 +43,6 @@
       "@utils": [
         "src/utils/index.ts"
       ],
-      "@hocs": [
-        "src/hocs/index.tsx"
-      ],
       "@hooks": [
         "src/hooks/index.tsx"
       ],
