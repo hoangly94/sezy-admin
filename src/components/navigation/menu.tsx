@@ -4,8 +4,7 @@ import styles from './_styles.css'
 import { useLocation } from 'react-router';
 import navigationData from '~config/navigation';
 import _ from 'lodash';
-import { Block, Col, Link } from 'sezy-design';
-import { Classes } from 'sezy-design/components/_base';
+import { Col, Link } from 'sezy-design';
 
 export enum Type {
   DEFAULT = 'menu',
@@ -41,9 +40,9 @@ const Menu = (props: IProps): React.ReactElement => {
   };
 
   return (
-    <Block {...componentProps}>
+    <div {...componentProps}>
       {navigationData?.map(mapPropsToLinkElemets(location, props, choosenPath, setChoosenPath))}
-    </Block>
+    </div>
   )
 }
 
@@ -80,7 +79,7 @@ const mapPropsToLinkElemets = (location, props: IProps, choosenPath, setChoosenP
   };
 
   const linkProps = {
-    classes: Classes(
+    classes: Classnames(
       location.pathname === link.url ? styles['item-active'] : null,
       'flex text-white py-3 px-5 hover:bg-gray-700',
       // link.subs && link.subs.filter(item => item.url === location.pathname).length > 0 ? styles['active'] : null,

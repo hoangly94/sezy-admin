@@ -12,7 +12,8 @@ export default {
   mode: 'production',
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
     publicPath: "/",
   },
   optimization: {
@@ -128,6 +129,7 @@ export default {
       '~utils': path.resolve(__dirname, 'src/utils/'),
       '@utils': path.resolve(__dirname, 'src/utils/index.ts'),
       '@hooks': path.resolve(__dirname, 'src/hooks/index.tsx'),
+      '@hocs': path.resolve(__dirname, 'src/hocs/index.tsx'),
     },
     fallback: { "stream": false },
   },

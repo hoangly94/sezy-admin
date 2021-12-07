@@ -46,6 +46,9 @@
       "@hooks": [
         "src/hooks/index.tsx"
       ],
+      "@hocs": [
+        "src/hocs/index.tsx"
+      ],
     },
     "plugins": [
       {

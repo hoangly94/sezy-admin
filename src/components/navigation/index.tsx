@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styles from './_styles.css';
-import {Button, Block} from "sezy-design";
+import {Button} from "sezy-design";
 import Menu from "./menu";
 import Icon from 'sezy-design/components/icon';
 // import * as Logo from "~commons/logo";
@@ -11,7 +11,7 @@ const useNavigation = () => {
   // if(width < 768)
   //   return 
   const NavigationMobile = (
-    <Block 
+    <div 
       classes={`${styles['navigation']}${isOpen ? ' active' : ''}`}
       {...{
         onClick: ((e)=> {
@@ -20,12 +20,12 @@ const useNavigation = () => {
         }).bind(this),
       }}
     >
-      <Block>
+      <div>
         {/* <Logo.Element {...logoProps} /> */}
         <Menu/>
         <Button onClick={ handleLogoutClick} />
-      </Block>
-    </Block >
+      </div>
+    </div >
   );
   const NavigationMobileToggle = (
       <Icon 
@@ -39,11 +39,11 @@ const useNavigation = () => {
   );
 
   const NavigationDesktop = (
-    <Block classes={`${styles['navigation']}`}>
+    <div classes={`${styles['navigation']}`}>
       {/* <Logo.Element {...logoProps} /> */}
       <Menu/>
       <Button onClick={ handleLogoutClick} />
-    </Block >
+    </div >
   )
 
   return {NavigationDesktop, NavigationMobile, NavigationMobileToggle};
